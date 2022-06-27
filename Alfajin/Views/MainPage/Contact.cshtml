@@ -1,0 +1,168 @@
+﻿@model MVCLibrary.Models.EntityFramework.ContactTBL
+    @{
+        ViewBag.Title = "Contact";
+        Layout = "~/Views/Shared/MainLayout.cshtml";
+    }
+    <!doctype html>
+    <html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       
+        <link rel="icon" href="~/aranoz/img/favicon.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+        <!-- animate CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/animate.css">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/all.css">
+        <!-- flaticon CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+        <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+        <!-- swiper CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/slick.css">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/style.css">
+    </head>
+    <body>
+        <!-- breadcrumb start-->
+        <!-- breadcrumb start-->
+        <!-- ================ contact section start ================= -->
+        <section class="contact-section padding_top">
+            <div class="container">
+                <div class="d-none d-sm-block mb-5 pb-4">
+                    <div id="map" style="height: 480px;"></div>
+                    <script>function initMap() {
+            var uluru = {
+              lat: -25.363,
+              lng: 131.044
+            };
+            var grayStyles = [{
+                featureType: "all",
+                stylers: [{
+                    saturation: -90
+                  },
+                  {
+                    lightness: 50
+                  }
+                ]
+              },
+              {
+                elementType: 'labels.text.fill',
+                stylers: [{
+                  color: '#ccdee9'
+                }]
+              }
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: {
+                lat: -31.197,
+                lng: 150.744
+              },
+              zoom: 9,
+              styles: grayStyles,
+              scrollwheel: false
+            });
+          }</script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title">Əlaqə</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+                              novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="Message" id="message" cols="30" rows="9"
+                                                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"
+                                                  placeholder='Mesajıvı daxil et'></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Name" id="name" type="text" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Enter your name'" placeholder='Ad və soyadı daxil et'>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Mail" id="email" type="email" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Enter email address'" placeholder='Mail adresi daxil et'>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control" name="Subject" id="subject" type="text" onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = 'Enter Subject'" placeholder='Mövzunu daxil et'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <button class="btn btn-danger">Göndər</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <div class="media-body">
+                                <h3>Sumgaqit, Azerbaijan.</h3>
+                                <p>9 mkr, 74a 17a</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+                                <h3>+994 70 671 15 31</h3>
+                                <p>Hər gün 9dan 6ya</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                                <h3>famil.hemid@gmail.com</h3>
+                                <p>Sual və əlaqə üçün</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- jquery -->
+        <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+        <!-- popper js -->
+        <script src="~/aranoz/js/popper.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="~/aranoz/js/bootstrap.min.js"></script>
+        <!-- easing js -->
+        <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/swiper.min.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/masonry.pkgd.js"></script>
+        <!-- particles js -->
+        <script src="~/aranoz/js/owl.carousel.min.js"></script>
+        <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+        <!-- slick js -->
+        <script src="~/aranoz/js/slick.min.js"></script>
+        <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+        <script src="~/aranoz/js/waypoints.min.js"></script>
+        <script src="~/aranoz/js/contact.js"></script>
+        <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+        <script src="~/aranoz/js/jquery.form.js"></script>
+        <script src="~/aranoz/js/jquery.validate.min.js"></script>
+        <script src="~/aranoz/js/mail-script.js"></script>
+        <!-- custom js -->
+        <script src="~/aranoz/js/custom.js"></script>
+    </body>
+</html>
+

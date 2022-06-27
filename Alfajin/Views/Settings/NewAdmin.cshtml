@@ -1,0 +1,41 @@
+﻿@model MVCLibrary.Models.EntityFramework.AdminTBL
+@{
+    ViewBag.Title = "NewAdmin";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("NewAdmin", "Settings", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="margin-top:15px">
+        <label>Ad</label>
+        @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Name, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soyad</label>
+        @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Surname, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İstifadəçi adı</label>
+        @Html.TextBoxFor(a => a.Username, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Parol</label>
+        @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Password, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>E-mail</label>
+        @Html.TextBoxFor(a => a.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Mail, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şəkil</label>
+       <input  type="file" name="Picture" required/>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni admin əlavə edin</button>
+    </div>
+    <input type="hidden" name="Status" value="true" />
+}

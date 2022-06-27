@@ -1,0 +1,24 @@
+﻿@using MVCLibrary.Models.EntityFramework;
+@model List<BookTBL>
+@{
+    ViewBag.Title = "AutBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 style="margin-top:15px">Yazar:<b><em> @ViewBag.autname</em></b></h2>
+<div class="row">
+    @foreach (var b in Model)
+    {
+        <div>
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <br />
+                <img class="img-fluid" src="@b.Picture" alt="" style="width:200px; height:300px; margin-left:30px">
+                <p style="text-align:center; margin-left:30px; margin-top:10px; "><b><em>@b.Name</em></b></p>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+

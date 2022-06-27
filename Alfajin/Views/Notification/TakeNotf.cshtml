@@ -1,0 +1,28 @@
+﻿@model MVCLibrary.Models.EntityFramework.NotificationTBL
+@{
+    ViewBag.Title = "TakeNotf";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateNotf", "Notification", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>İD</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mövzu</label>
+        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Məzmun</label>
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Tarix</label>
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+       <button class="btn btn-dark">Güncəlləyin</button>
+    </div>
+}
+

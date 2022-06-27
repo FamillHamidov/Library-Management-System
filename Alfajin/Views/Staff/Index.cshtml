@@ -1,0 +1,49 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<StaffTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string color = "";
+}
+<div class="row" style="margin-top:20px;">
+    <div style="float: left; width: 50%;padding: 10px;height:60px;">
+        <h3 style="text-align:left"><b><em>#İşçilər</em></b></h3>
+    </div>
+    <div style="float: left; width: 50%;padding: 10px;height: 60px;">
+        <a style="margin-right:30px; float:right" href="/Staff/NewStaff/" class="btn btn-dark">
+            <i class="fa fa-plus" style="margin-right:5px"></i>Yeni işçi əlavə et
+        </a>
+    </div>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#ffd800">
+        <th><em>Adı</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.Status == false)
+        {
+            color = "bg-secondary text-white";
+        }
+        else
+        {
+            color = "bg-default text-black";
+        }
+        <tr class="@color">
+            <td>@item.Staff</td>
+            <td>
+                @Html.ActionLink(" ","RemoveStaff", new { id = item.Id }, new { @class = "btn btn-danger fa fa-trash",
+                                                   onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Staff/TakeStaff/@item.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})

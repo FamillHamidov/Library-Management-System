@@ -1,0 +1,29 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<BlogCommentTBL>
+@foreach (var item in Model)
+{
+    <div class="comment-list">
+        <div class="single-comment justify-content-between d-flex">
+            <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                    <img src="~/Admin/dist/img/2.png" alt="">
+                </div>
+                <div class="desc">
+                    <p class="comment">
+                       @item.Comment
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h5>
+                                <a href="#">@item.Name</a>
+                            </h5>
+                            <p class="date">@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,20 @@
+﻿@model MVCLibrary.Models.EntityFramework.AboutTBL
+@{
+    ViewBag.Title = "TakeAbout";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateAbout", "About", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>Bloq Id</label>
+        @Html.TextBoxFor(b => b.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Bloq haqqında əlavə məlumat</label>
+        @Html.TextAreaFor(b => b.Detail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncəllə</button>
+    </div>
+}
+

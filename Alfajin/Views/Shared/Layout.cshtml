@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>@Session["Name"] @Session["Surname"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/sidebar/css/style.css">
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(@Session["Picture"]);"></a>
+                <h5 style="text-align:center; margin-top:-40px; color:white">@Session["Name"] @Session["Surname"]</h5>
+                <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="/MainPage/Index/"><i class="fa fa-fw fa-home"></i> Əsas səhifə</a>
+                    </li>
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fa fa-fw fa-book"></i> Kitablar
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="/Book/Index/"><i class="fa fa-fw fa-book"></i> Kitablar</a>
+                            </li>
+                            <li>
+                                <a href="/Book/Soon/"><i class="fa fa-fw fa-book"></i> Tezliklə</a>
+                            </li>
+                            <li>
+                                <a href="/GiveBook/Givebook/"><i class="fa fa-fw fa-arrow-right"></i> Kitab icarəyə ver</a>
+                            </li>
+                            <li>
+                                <a href="/GiveBook/Index/"><i class="fa fa-fw fa-arrow-left"></i> Kitabı geri al</a>
+                            </li>
+                            <li>
+                                <a href="/Transaction/Index/"><i class="fa fa-fw fa-history"></i>Keçmiş əməliyyatlar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/Author/Index/"><i class="fa fa-fw fa-pencil-square-o"></i> Müəlliflər</a>
+                    </li>
+                    <li>
+                        <a href="/Category/Index/"><i class="fa fa-fw fa-reorder"></i> Janrlar</a>
+                    </li>
+                    <li>
+                        <a href="/Member/Index/"><i class="fa fa-fw fa-users"></i> İstifadəçilər</a>
+                    </li>
+                    <li>
+                        <a href="/Staff/Index/"><i class="fa fa-fw fa-user"></i> İşçilər</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fa fa-fw fa-hand-o-right"></i> Əlavələr
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="/Statistic/Index/"><i class="fa fa-fw fa-bar-chart"></i> Statistika</a>
+                            </li>
+                            <li>
+                                <a href="/Statistic/Weather/"><i class="fa fa-fw fa-cloud"></i> Hava haqqında məlumat</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/Notification/Index/"><i class="fa fa-fw fa-bullhorn"></i> Bildirişlər</a>
+                    </li>
+                    <li>
+                        <a href="/Blog/Index/"><i class="fa fa-fw fa-bullhorn"></i> Bloqlar</a>
+                    </li>
+                    <li>
+                        <a href="/Advertising/Index/"><i class="fa fa-fw fa-bullhorn"></i> Reklamlar</a>
+                    </li>
+                    <li>
+                        <a href="/About/Index/"><i class="fa fa-fw fa-address-card"></i> Haqqımızda</a>
+                    </li>
+                    <li>
+                        <a href="/Settings/Index/"><i class="fa fa-fw fa-cog"></i> Parametrlər</a>
+                    </li>
+                    <li>
+                        <a href="/AdminLogin/SignOut/"><i class="fa fa-fw fa-arrow-circle-left"></i> Çıxış</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/MainPage/Index/"><i class="fa fa-fw fa-home"></i> Əsas səhifə</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/MainPage/Index/#about">Haqqımızda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/MainPage/Index/#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/MainPage/Index/#contact">Əlaqə</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/sidebar/js/jquery.min.js"></script>
+    <script src="~/sidebar/js/popper.js"></script>
+    <script src="~/sidebar/js/bootstrap.min.js"></script>
+    <script src="~/sidebar/js/main.js"></script>
+</body>
+</html>

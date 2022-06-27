@@ -1,0 +1,56 @@
+﻿@model MVCLibrary.Models.EntityFramework.BookTBL
+@{
+                /**/
+
+                ViewBag.Title = "TakeBook";
+                Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="margin-top:15px">
+        <label>Kitab Id</label>
+        @Html.TextBoxFor(b => b.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitabın adı</label>
+        @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Janrı</label>
+        @Html.DropDownListFor(b => b.CategoryTBL.Id, (List<SelectListItem>)ViewBag.ctg1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazıçı adı</label>
+        @Html.DropDownListFor(b => b.AuthorTBL.Id, (List<SelectListItem>)ViewBag.aut1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Çap olunma ili</label>
+        @Html.TextBoxFor(b => b.PrintYear, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Çap evi</label>
+        @Html.TextBoxFor(b => b.Publisher, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Səhifə sayı</label>
+        @Html.TextBoxFor(b => b.Page, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitab haqqında əlavə məlumat</label>
+        @Html.TextAreaFor(b => b.Detail, new { @class = "form-control" })
+    </div>
+    <div class="input-group" style="margin-top:15px">
+        <label class="label">Stokda var və ya tezliklə olacağını seçin:    </label>
+        <div class="rs-select2 js-select-simple select--no-search">
+            <select name="Option" class="form-control">
+                <option disabled="disabled" selected="selected">Seçin</option>
+                <option>Mövcuddur</option>
+                <option>Tezliklə</option>
+            </select>
+            <div class="select-dropdown"></div>
+        </div>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncəllə</button>
+    </div>
+}

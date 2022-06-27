@@ -1,0 +1,82 @@
+﻿@model MVCLibrary.Models.EntityFramework.BookTBL
+@{
+    ViewBag.Title = "BookDetail";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+<link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1><em>#Əlavə Məlumat</em></h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-10 col-sm-6">
+                        <h3 class="d-inline-block d-sm-none"></h3>
+                        <div class="col-12" >
+                            <img src="@Model.Picture" style="height:450px; width:320px; margin-left:50px" class="product-image" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6">
+                        <h5 class="my-3" > Adı:   <b style="color:green"><em>@Model.Name</em></b></h5>
+                        <hr>
+                        <div style="margin-top:20px"></div>
+                        <h5 class="my-3" > Müəllif:   <b style="color:green"><em>@Model.AuthorTBL.Name @Model.AuthorTBL.Surname</em></b></h5>
+                        <hr>
+                        <h5 class="my-3" > Janrı:   <b style="color:green"> <em>@Model.CategoryTBL.Name</em></b></h5>
+                        <hr>
+                        <h5 class="my-3" > Çap evi:   <b style="color:green"><em>@Model.Publisher</em></b></h5>
+                        <hr>
+                        <h5 class="my-3" > Çap ili:   <b style="color:green"><em>@Model.PrintYear</em></b></h5>
+                        <hr>
+                        <h5 class="my-3"> Səhifə sayı:   <b style="color:green"><em>@Model.Page</em></b></h5>
+                        <hr>
+                        <div class="mt-4" >
+                            <div class="btn btn-info btn-lg btn-flat" style="margin-top:30px">
+                               <a href="/Profil/Books/" style="color:white"><i class="fa fa-hand-o-left"></i> Geri</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <nav class="w-100">
+                        <div class="nav nav-tabs" id="product-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab"
+                               href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Kitab Haqqında</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content p-3" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="product-desc" 
+                             role="tabpanel" aria-labelledby="product-desc-tab">@Model.Detail </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Admin/dist/js/demo.js"></script>
+
+

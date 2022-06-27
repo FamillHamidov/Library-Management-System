@@ -1,0 +1,116 @@
+﻿@model MVCLibrary.Models.EntityFramework.BlogTBL
+    @{
+        ViewBag.Title = "BlogDetail";
+        Layout = "~/Views/Shared/MainLayout.cshtml";
+    }
+    <!doctype html>
+    <html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>aranoz</title>
+        <link rel="icon" href="~/aranoz/img/favicon.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+        <!-- animate CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/animate.css">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/all.css">
+        <!-- flaticon CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+        <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+        <!-- swiper CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/slick.css">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/style.css">
+    </head>
+    <body>
+        <!-- breadcrumb start-->
+        <!--================Blog Area =================-->
+        <section class="blog_area single-post-area padding_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 posts-list">
+                        <div class="single-post">
+                            <div class="feature-img">
+                                <img class="img-fluid" src="@Model.Picture" alt="">
+                            </div>
+                            <div class="blog_details">
+                                <h2>
+                                    @Model.Title
+                                </h2>
+                                <ul class="blog-info-link mt-3 mb-4">
+                                    <li><a href="#"><i class="far fa-comments"></i> @ViewBag.cmn Şərh</a></li>
+                                </ul>
+                                <p class="excert">
+                                   @Model.Detail
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comments-area">
+                            <h4>@ViewBag.cmn Şərh</h4>
+                            @Html.Action("Partial3")
+                        </div>
+                        <div class="comment-form">
+                            <h4>Şərh əlavə et</h4>
+                            @using (Html.BeginForm("BlogComment", "MainPage", FormMethod.Post))
+                            {
+                                    <div class="row">
+                                        <input type="hidden" name="Blog" value="@ViewBag.id"/>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" name="Name" id="name" type="text" placeholder="Ad və soyad">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control w-100" name="Comment" id="comment" cols="30" rows="9"
+                                                          placeholder="Şərhivi daxil et"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <button class="btn btn-danger">Göndər</button>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area end =================-->
+        <!--::footer_part end::-->
+        <!-- jquery plugins here-->
+        <!-- jquery -->
+        <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+        <!-- popper js -->
+        <script src="~/aranoz/js/popper.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="~/aranoz/js/bootstrap.min.js"></script>
+        <!-- easing js -->
+        <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/swiper.min.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/masonry.pkgd.js"></script>
+        <!-- particles js -->
+        <script src="~/aranoz/js/owl.carousel.min.js"></script>
+        <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+        <!-- slick js -->
+        <script src="~/aranoz/js/slick.min.js"></script>
+        <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+        <script src="~/aranoz/js/waypoints.min.js"></script>
+        <script src="~/aranoz/js/contact.js"></script>
+        <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+        <script src="~/aranoz/js/jquery.form.js"></script>
+        <script src="~/aranoz/js/jquery.validate.min.js"></script>
+        <script src="~/aranoz/js/mail-script.js"></script>
+        <!-- custom js -->
+        <script src="~/aranoz/js/custom.js"></script>
+    </body>
+</html>

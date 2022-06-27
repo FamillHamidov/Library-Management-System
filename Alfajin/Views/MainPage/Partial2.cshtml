@@ -1,0 +1,24 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<BookTBL>
+<style>
+    #test:hover {
+        color: #ff0000
+    }
+</style>
+@foreach (var item in Model)
+{
+    <div style="width:170px; height:430px">
+        <div style="text-align:center">
+            <a href="/MainPage/TakeBook/@item.Id">
+                <img src="@item.Picture" style="width:160px;height:250px" alt="">
+            </a>
+            <div style="margin-top:10px; height:150px">
+                <a href="/MainPage/TakeBook/@item.Id">
+                    <h5 id="test">@item.Name</h5>
+                </a>
+                <h6 style=" color:black"> Jarn:  <b style=" color  :green">@item.CategoryTBL.Name</b></h6>
+                <h6 style=" color:black"> Müəllif:  <b style=" color  :green">@item.AuthorTBL.Name @item.AuthorTBL.Surname</b></h6>
+            </div>
+        </div>
+    </div>
+}

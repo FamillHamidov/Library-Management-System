@@ -1,0 +1,42 @@
+﻿@using MVCLibrary.Models.EntityFramework;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<NotificationTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="row" style="margin-top:20px;">
+    <div style="float: left; width: 50%;padding: 10px;height:60px;">
+        <h3 style="text-align:left"><b><em>#Bildirişlər</em></b></h3>
+    </div>
+    <div style="float: left; width: 50%;padding: 10px;height: 60px;">
+        <a style="margin-right:30px; float:right" href="/Notification/NewNotification/" class="btn btn-dark">
+            <i class="fa fa-plus" style="margin-right:5px"></i>Yeni bildiriş əlavə et
+        </a>
+    </div>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#608ee0">
+        <th><em>Mövzu</em></th>
+        <th><em>Tarix</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var n in Model)
+    {
+        <tr>
+            <th>@n.Subject</th>
+            <th>@Convert.ToDateTime(@n.Date).ToString("dd/MM/yyyy")</th>
+            <th>
+                @Html.ActionLink(" ","RemoveNotf", new { id = n.Id }, new { @class = "btn btn-danger fa fa-trash",
+                                                   onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Notification/TakeNotf/@n.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+            </th>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})

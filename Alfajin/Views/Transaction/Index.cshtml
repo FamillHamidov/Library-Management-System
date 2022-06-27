@@ -1,0 +1,36 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ActionTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div style="margin-top:20px; margin-bottom:20px">
+    <h3 style="text-align:left"><b><em>#Əməliyyatlar</em></b></h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#00ff90">
+        <th>Kitab</th>
+        <th>İstifadəçi</th>
+        <th>İşçi</th>
+        <th>Kitabın verilmə tarixi</th>
+        <th>Kitabın geri verildiyi tarix</th>
+    </tr>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <th>@t.BookTBL.Name</th>
+            <th>@t.MemberTBL.Name &nbsp; @t.MemberTBL.Surname</th>
+            <th>@t.StaffTBL.Staff</th>
+            <td>@Convert.ToDateTime(t.PurchaseDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(t.ReturnDate).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})
+

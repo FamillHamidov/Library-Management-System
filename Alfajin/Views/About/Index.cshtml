@@ -1,0 +1,30 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<AboutTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div style="margin-top:-30px; margin-bottom:10px">
+    <h3 style="text-align:left"><b><em><i class="fa fa-hashtag"></i>Haqqımızda</em></b></h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#66ff99; color:black">
+        <th><em>Başlıq</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td><span class=" label label-primary">@b.Detail</span></td>
+            <td>
+                @Html.ActionLink(" ", "RemoveAbout", new { id = b.Id }, new { @class = "btn btn-danger fa fa-trash",
+               onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Blog/TakeAbout/@b.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+<a style="margin-bottom:15px" href="/About/NewAbout/" class="btn btn-dark">
+    <i class="fa fa-plus" style="margin-right:5px"></i>Yeni yazı əlavə et
+</a>
+

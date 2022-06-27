@@ -1,0 +1,64 @@
+﻿@using MVCLibrary.Models.EntityFramework;
+@model List<NotificationTBL>
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+@*<link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">*@
+<!-- Ionicons -->
+@*<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">*@
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+@*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">*@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Bildirişlər</a></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="activity">
+                                @foreach (var n in Model)
+                                {
+                                    <div class="post">
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" src="~/Admin/dist/img/2.png" alt="user image">
+                                            <span class="username">
+                                                <a href="#">@n.Subject</a>
+                                            </span>
+                                            <span class="description">@Convert.ToDateTime(@n.Date).ToString("dd MMM yyyy")</span>
+                                        </div>
+                                        <p>
+                                            @n.Content
+                                        </p>
+                                    </div>
+                                }
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </d
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Admin/dist/js/demo.js"></script>
+
+

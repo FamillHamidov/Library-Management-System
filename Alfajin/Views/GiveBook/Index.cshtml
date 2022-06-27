@@ -1,0 +1,30 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<ActionTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div style="margin-top:-30px; margin-bottom:10px">
+    <h3 style="text-align:left"><b><em>#Kitabı Geri Al</em></b></h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#69d549">
+        <th><em>Kitab</em></th>
+        <th><em>İstifadəçi</em></th>
+        <th><em>İşçi</em></th>
+        <th><em>Kitabın verilmə tarixi</em></th>
+        <th><em>Kitabın alınacağı tarix</em></th>
+        <th><em>Kitabı geri al</em></th>
+    </tr>
+    @foreach(var b in Model)
+    {
+        <tr>
+            <td>@b.BookTBL.Name</td>
+            <td>@b.MemberTBL.Name &nbsp;@b.MemberTBL.Surname</td>
+            <td>@b.StaffTBL.Staff</td>
+            <td>@Convert.ToDateTime(b.PurchaseDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(b.ReturnDate).ToString("dd/MM/yyyy")</td>
+            <td><a href="/GiveBook/GiveBookInfo/@b.Id" class="btn btn-info">Kitabı geri al</a></td>
+        </tr>
+    }
+</table>

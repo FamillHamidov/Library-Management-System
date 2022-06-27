@@ -1,0 +1,45 @@
+﻿@model MVCLibrary.Models.EntityFramework.AuthorTBL
+@{
+    ViewBag.Title = "TakeAuthor";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateAuthor", "Author", FormMethod.Post))
+{
+<div class="form-group">
+    <div style="margin-top:15px">
+        <label>Yazar ID</label>
+        @Html.TextBoxFor(a => a.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar adı</label>
+        @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar soyadı</label>
+        @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Doğulduğu yer</label>
+        @Html.TextBoxFor(a => a.Dateplace, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Doğulduğu tarix</label>
+        <input type="date" name="Birthdate" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Vəfat etdiyi tarix</label>
+        <input type="date" name="Diedate" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Vətəndaşlığı</label>
+        @Html.TextBoxFor(a => a.Citizenship, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fəaliyyəti</label>
+        @Html.TextBoxFor(a => a.Activities, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-warning">Güncəllə</button>
+    </div>
+</div>
+}

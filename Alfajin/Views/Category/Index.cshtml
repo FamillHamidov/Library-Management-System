@@ -1,0 +1,49 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<CategoryTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string color = "";
+}
+<div class="row" style="margin-top:20px;">
+    <div style="float: left; width: 50%;padding: 10px;height:60px;">
+        <h3 style="text-align:left"><b><em>#Janrlar</em></b></h3>
+    </div>
+    <div style="float: left; width: 50%;padding: 10px;height: 60px;">
+        <a style="margin-right:30px; float:right" href="/Category/NewCategory/" class="btn btn-dark">
+            <i class="fa fa-plus" style="margin-right:5px"></i>Yeni janr əlavə et
+        </a>
+    </div>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#66ff99">
+        <th><em>Ad</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var info in Model)
+    {
+        if (info.Status == false)
+        {
+            color = "bg-secondary text-white";
+        }
+        else
+        {
+            color = "bg-default text-black";
+        }
+        <tr class="@color">
+            <td>@info.Name</td>
+            <td>
+                @Html.ActionLink(" ","RemoveCategory", new { id = info.Id }, new { @class = "btn btn-danger fa fa-trash",
+              onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Category/UpdateCategory/@info.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})

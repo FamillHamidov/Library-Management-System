@@ -1,0 +1,47 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<BookTBL>
+@{
+    ViewBag.Title = "Soon";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="row" style="margin-top:20px;">
+    <div style="float: left; width: 50%;padding: 10px;height:60px;">
+        <h3 style="text-align:left"><b><em>#Kitablar</em></b></h3>
+    </div>
+    <div style="float: left; width: 50%;padding: 10px;height: 60px;">
+        <a style="margin-right:30px; float:right" href="/Book/NewBook/" class="btn btn-dark">
+            <i class="fa fa-plus" style="margin-right:5px"></i>Yeni kitab əlavə et
+        </a>
+    </div>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#66ff99; color:black">
+        <th><em>Adı</em></th>
+        <th><em>Janrı</em></th>
+        <th><em>Yazarı</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var b in Model)
+    {
+
+        <tr>
+            <td><span class=" label label-primary">@b.Name</span></td>
+            <td>@b.CategoryTBL.Name</td>
+            <td>@b.AuthorTBL.Name&nbsp; @b.AuthorTBL.Surname</td>
+            <td>
+                @Html.ActionLink(" ","RemoveBook", new { id = b.Id }, new { @class = "btn btn-danger fa fa-trash",
+                onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Book/TakeBook/@b.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                <a href="/Book/TakePicture/@b.Id" class="btn btn-primary"><i class="fa fa-camera"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})
+

@@ -1,0 +1,37 @@
+﻿@model MVCLibrary.Models.EntityFramework.AdminTBL
+@{
+    ViewBag.Title = "TakeAdmin";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateAdmin", "Settings", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>Admin Id</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Ad</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soyad</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>E-mail</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İstifadəçi adı</label>
+        @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifrə</label>
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncəllə</button>
+        <a href="/Settings/Index/" class="btn btn-success">Geri</a>
+    </div>
+}

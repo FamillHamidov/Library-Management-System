@@ -1,0 +1,87 @@
+﻿@model MVCLibrary.Models.EntityFramework.MessageTBL
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Compose Message</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <!-- Navbar -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                @Html.Action("Partial2")
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Yeni mesaj yazın</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+                        {
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="Receiver" placeholder="Kimə:" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="Subject" placeholder="Movzu:">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="Message" placeholder="Mesajınızı yazın" class="form-control" height="300" />
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                <div class="float-right">
+                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Göndər</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="Status" value="true" />
+                        }
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Admin/dist/js/demo.js"></script>
+    <!-- Summernote -->
+    <script src="~/Admin/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })</script>
+</body>
+</html>

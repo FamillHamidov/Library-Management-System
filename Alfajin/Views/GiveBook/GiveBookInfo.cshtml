@@ -1,0 +1,45 @@
+﻿@model MVCLibrary.Models.EntityFramework.ActionTBL
+@{
+    ViewBag.Title = "GiveBookInfo";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("GiveBookUpdate", "GiveBook", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>Id</label>
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitabın adı</label>
+        @Html.TextBoxFor(x => x.BookTBL.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İstifadəçi adı</label>
+        @Html.TextBoxFor(x => x.MemberTBL.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İşçi adı</label>
+        @Html.TextBoxFor(x => x.StaffTBL.Staff, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitabın verilmə tarixi</label>
+        @Html.TextBoxFor(x => x.PurchaseDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitabın alınacağı tarix</label>
+        @Html.TextBoxFor(x => x.ReturnDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Müştərinin gətirdiyi tarix</label>
+        <input type="text" class="form-control" name="MemberReturnDate" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitabın gecikdiyi gün sayı</label>
+        <input type="text" class="form-control" id="kggs" value="@ViewBag.vbg" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Kitabı geri al</button>
+    </div>
+}
+
+

@@ -1,0 +1,163 @@
+﻿@model MVCLibrary.Models.EntityFramework.BookTBL
+@{
+    ViewBag.Title = "TakeBook";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aranoz</title>
+    <link rel="icon" href="~/aranoz/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/aranoz/css/lightslider.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+    <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/style.css">
+</head>
+<body>
+    <div class="product_image_area section_padding">
+        <div class="container">
+            <div class="row s_product_inner justify-content-between">
+                <div class="col-lg-7">
+                    <div class="product_slider_img">
+                        <div id="vertical">
+                            <div data-thumb="@Model.Picture">
+                                <img src="@Model.Picture" style="width:300px; margin-left:120px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 " >
+                    <div class="s_product_text">
+                        
+                        <h3>@Model.Name</h3>
+                        <h2 class="btn btn-warning" style="color:black">Mövcuddur</h2>
+                        <ul class="list">
+                            <li>
+                                <h4 style=" color:black"> Jarn:  <b style=" color  :green">@Model.CategoryTBL.Name</b></h4>
+                            </li>
+                           
+                            <li style="margin-top:20px">
+                                <h4 style=" color:black"> Müəllif:  <b style=" color  :green">@Model.AuthorTBL.Name @Model.AuthorTBL.Surname</b></h4>
+                            </li>
+                            <li style="margin-top:20px">
+                                <h4 style=" color:black"> Səhifə sayı:  <b style=" color  :green">@Model.Page</b></h4>
+                            </li>
+                            <li style="margin-top:20px">
+                                <h4 style=" color:black"> Nəşriyyat:  <b style=" color  :green">@Model.Publisher</b></h4>
+                            </li>
+                            <li style="margin-top:20px">
+                                <h4 style=" color:black"> Çap edildiyi tarix:  <b style=" color  :green">@Model.PrintYear</b></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="product_description_area">
+        <div class="container">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                       aria-selected="true">Əlavə</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                       aria-selected="false">Şərhlər</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <p>
+                       @Model.Detail
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="comment_list">
+                                @Html.Action("Partial1")
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="review_box">
+                                <h4>Şərh əlavə et</h4>
+                                @using (Html.BeginForm("Comment", "MainPage", FormMethod.Post))
+                                {
+                                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                                          novalidate="novalidate">
+                                       <input type="hidden" name="BookId" value="@ViewBag.id"/>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="name" name="Name" placeholder="Your Full name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="Comment" id="message" rows="1"
+                                                          placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button type="submit" value="submit" class="btn_3">
+                                               Əlavə et
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jquery -->
+    <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/aranoz/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/aranoz/js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/lightslider.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="~/aranoz/js/owl.carousel.min.js"></script>
+    <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="~/aranoz/js/slick.min.js"></script>
+    <script src="~/aranoz/js/swiper.jquery.js"></script>
+    <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+    <script src="~/aranoz/js/waypoints.min.js"></script>
+    <script src="~/aranoz/js/contact.js"></script>
+    <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/aranoz/js/jquery.form.js"></script>
+    <script src="~/aranoz/js/jquery.validate.min.js"></script>
+    <script src="~/aranoz/js/mail-script.js"></script>
+    <script src="~/aranoz/js/stellar.js"></script>
+    <!-- custom js -->
+    <script src="~/aranoz/js/theme.js"></script>
+    <script src="~/aranoz/js/custom.js"></script>
+</body>
+</html>
+

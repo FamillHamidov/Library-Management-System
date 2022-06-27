@@ -1,0 +1,21 @@
+﻿@model MVCLibrary.Models.EntityFramework.AdminTBL
+@{
+    ViewBag.Title = "TakePicture";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdatePicture", "Settings", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="margin-top:15px">
+        @Html.HiddenFor(b => b.Id)
+    </div>
+    <div style="margin-top:15px">
+        <img src="@Model.Picture" style="width:150px; height:200px" />
+        <br />
+        <br />
+        <input type="file" name="Picture" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Güncəllə</button>
+    </div>
+}
+

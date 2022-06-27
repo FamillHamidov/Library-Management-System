@@ -1,0 +1,138 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<AboutTBL>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aranoz</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+    <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+    <link rel="stylesheet" href="~/aranoz/css/nice-select.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/style.css">
+</head>
+<body>
+    <!-- Start Align Area -->
+    <br />
+    <br />
+    <br />
+    <div class="whole-wrap">
+        <div class="container box_1170">
+
+            <div @*class="section-top-border"*@ style="margin-top:130px">
+                @*<h3 class="mb-30">Left Aligned</h3>*@
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="~/aranoz/img/alfajinabout.jpeg" alt="" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-9 mt-sm-20">
+                            <p>
+                                @item.Detail
+                            </p>
+                        </div>
+
+                    </div>
+
+                }
+            </div>
+
+            @*<div class="section-top-border">
+                    <h3>Image Gallery</h3>
+                    <div class="row gallery-item">
+                        <div class="col-md-4">
+                            <a href="img/elements/g1.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g1.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="img/elements/g2.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g2.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="img/elements/g3.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g3.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="img/elements/g4.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g4.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="img/elements/g5.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g5.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="img/elements/g6.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g6.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="img/elements/g7.jpg" class="img-pop-up img-gal" >
+                                <div class=" single-gallery-image" style="background: url(img/elements/g7.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="img/elements/g8.jpg" class="img-pop-up img-gal">
+                                <div class="single-gallery-image" style="background: url(img/elements/g8.jpg);"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+    <!-- End Align Area -->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/aranoz/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/aranoz/js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="~/aranoz/js/owl.carousel.min.js"></script>
+    <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="~/aranoz/js/slick.min.js"></script>
+    <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+    <script src="~/aranoz/js/waypoints.min.js"></script>
+    <script src="~/aranoz/js/contact.js"></script>
+    <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/aranoz/js/jquery.form.js"></script>
+    <script src="~/aranoz/js/jquery.validate.min.js"></script>
+    <script src="~/aranoz/js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="~/aranoz/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@model MVCLibrary.Models.EntityFramework.MemberTBL
+@{
+    ViewBag.Title = "NewMember";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<form class="form-group", method="post">
+    <div style="margin-top:15px">
+        <label>Adı</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Soyadı</label>
+        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İstifadəçi adı</label>
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifrə</label>
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail</label>
+        @Html.TextBoxFor(m => m.Mail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon nömrəsi</label>
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Təhsil aldığı məktəb və ya universitet</label>
+        @Html.TextBoxFor(m => m.School, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Səkli</label>
+        @Html.TextBoxFor(m => m.Picture, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni istifadəçi əlavə edin</button>
+    </div>
+</form>
+
+
+

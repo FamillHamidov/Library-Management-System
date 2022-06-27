@@ -1,0 +1,26 @@
+﻿@model MVCLibrary.Models.EntityFramework.BlogTBL
+@{
+    ViewBag.Title = "NewBlog";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("NewBlog", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div style="margin-top:15px">
+        <label>Başlıq</label>
+        @Html.TextBoxFor(b => b.Title, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şəkil</label>
+        <input name="Picture" type="file" required />
+    </div>
+    <div style="margin-top:15px">
+        <label>Mövzu</label>
+        @Html.TextAreaFor(b => b.Detail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni bloq əlavə edin</button>
+    </div>
+    <input type="hidden" name="Status" value="true" />
+}
+
+

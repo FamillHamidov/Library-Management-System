@@ -1,0 +1,20 @@
+﻿@model MVCLibrary.Models.EntityFramework.StaffTBL
+@{
+    ViewBag.Title = "TakeStaff";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("UpdateStaff", "Staff", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>İşçi İD</label>
+        @Html.TextBoxFor(s => s.Id, new { @class = "form-conrol" })
+    </div>
+    <div style="margin-top:15px">
+        <label>İşçinin adı</label>
+        @Html.TextBoxFor(s => s.Staff, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Güncəllə</button>
+    </div>
+}
+

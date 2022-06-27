@@ -1,0 +1,37 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ActionTBL>
+@{
+    ViewBag.Title = "MemberBooks";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+<style>
+    #test:hover {
+        color: black
+    }
+</style>
+<div style="margin-top:-20px; margin-bottom:20px">
+    <h3 style="text-align:left"><b><em>#Kitablarım</em></b></h3>
+</div>
+<div class="row" style="margin-top:-25px">
+    @foreach (var x in Model)
+    {
+        <div>
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <br />
+                <a href="/Profil/BookDetail/@x.BookTBL.Id">
+                    <img class="img-fluid" src="@x.BookTBL.Picture" alt="" style="width:200px; height:300px; margin-left:30px">
+                </a>
+                <a href="/Profil/BookDetail/@x.Id">
+                    <p id="test" style="text-align:center;width:200px; margin-left:30px; margin-top:10px"><b><em>@x.BookTBL.Name</em></b></p>
+                </a>
+            </div>
+        </div>
+    }
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("MemberBooks",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})

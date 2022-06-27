@@ -1,0 +1,62 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<BookTBL>
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+    string color = "";
+    string soz = "";
+}
+<style>
+    #test:hover {
+        color: #ff0000
+    }
+</style>
+<div class="row">
+    <div style="margin-top:-25px;margin-bottom:20px;float: left; width: 50%;padding: 10px;height:60px">
+        <h3 style="text-align:left"><b><em>#Kitablar</em></b></h3>
+    </div>
+    <div style=" margin-top:-10px; margin-right:-60px">
+        @using (Html.BeginForm("Books", "Profil", FormMethod.Get))
+        {
+            <input type="text" name="p" style="margin-left:100px" placeholder="Kitabın adını daxil edin" />
+            <button class="btn btn-info"><i class="fa fa-search"></i>  Axtar</button>
+        }
+    </div>
+</div>
+<div class="row" style="margin-top:-35px">
+    @foreach (var x in Model)
+    {
+        if (x.Status == false)
+        {
+            color = "btn btn-danger btn-sm";
+            soz = " İCARƏYƏ VERİLİB";
+        }
+        if (x.Status == true)
+        {
+            color = "btn btn-success btn-sm";
+            soz = "MÖVCUDDUR";
+        }
+        <div>
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <br />
+                <a href="/Profil/BookDetail/@x.Id">
+                    <img class="img-fluid" src="@x.Picture" alt="" style="width:200px; height:300px; margin-left:30px">
+                </a>
+                <a href="/Profil/BookDetail/@x.Id">
+                    <p id="test" style="text-align:center;width:200px; margin-left:30px; margin-top:10px; "><b><em>@x.Name</em></b></p>
+                </a>
+                <div>
+                    <button class="@color" style="height:30px; width:140px;color:white; margin-left:60px">@soz</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Books",new { page }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    { "page-link" }
+})
+

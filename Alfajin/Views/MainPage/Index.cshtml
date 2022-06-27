@@ -1,0 +1,251 @@
+﻿@model MVCLibrary.Models.Classes.Class1
+@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aranoz</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+    <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="~/aranoz/css/style.css">
+    <style>
+        #test:hover {
+            color: #ff0000
+        }
+    </style>
+</head>
+<body>
+    <section class="banner_part">
+        <div class="container">
+            <div @*class="row align-items-center"*@>
+                <div class="col-lg-12">
+                    <div >
+                        @foreach (var item in Model.Info2)
+                        {
+                            <div class="single_banner_slider">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-8">
+                                        <div class="banner_text">
+                                            <div class="banner_text_iner">
+                                                <h1>
+                                                    @*Tezliklə*@
+                                                    @item.Title
+                                                </h1>
+                                                <p>
+                                                    @item.Detail
+                                                    @*Müxtəlf janrlarda və bir-birindən maraqlı
+                                                        kitblar tezliklə kitabxanamızda. Yeni gələn
+                                                        kitablardan xəbərdar olmaq üçün saytımızda qeydiyyatdan
+                                                        keçin*@
+                                                    @*~/aranoz/img/book4.jpeg*@
+                                                </p>
+                                                <a href="/Register/Index/" class="btn_2">QEYDİYYAT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="banner_img d-none d-lg-block">
+                                        <img src="@item.Picture" alt="" style="width:706px; height:353px; margin-top:-60px">
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                    <div class="slider-counter"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner part start-->
+    <!-- feature_part start-->
+    <section class="feature_part padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section_tittle text-center">
+                        <h2>Tezliklə</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                @Html.Action("Partial2")
+            </div>
+        </div>
+    </section>
+    <!-- upcoming_event part start-->
+    <!-- product_list start-->
+    <section class="product_list section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3">
+                    <div class="section_tittle text-center">
+                        <h2>Kitablarımız <span></span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div>
+                        <div class="single_product_list_slider">
+                            <div class="row align-items-center justify-content-between">
+                                @foreach (var item in Model.Info1)
+                                {
+                                    <div id="test" style="width:170px; height:430px">
+                                        <div style="text-align:center">
+                                            <a href="/MainPage/TakeBook/@item.Id" id="test">
+                                                <img src="@item.Picture" style="width:160px;height:250px" alt="">
+                                            </a>
+                                            <div style="margin-top:10px; height:150px">
+                                                <a href="/MainPage/TakeBook/@item.Id">
+                                                    <h5 id="test"><strong> @item.Name</strong></h5>
+                                                </a>
+                                                <h6 style=" color:black"> Jarn:  <b style=" color  :green">@item.CategoryTBL.Name</b></h6>
+                                                <h6 style=" color:black"> Müəllif:  <b style=" color  :green">@item.AuthorTBL.Name @item.AuthorTBL.Surname</b></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product_list part start-->
+    <!-- awesome_shop start-->
+    <section class="our_offer section_padding">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-6 col-md-6" style="width:330px; height:400px">
+                    <div class="offer_img" style="width:330px; height:400px">
+                        <img src="@ViewBag.pic" alt="" @*style="width:330px; height:400px"*@>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="offer_text">
+                        <h3>
+                            Hazırda kitabxanamızda ən çox sevilən müəllif @ViewBag.n-dir.
+                            Daha çox bu müəllifin kitabları oxucularımız tərəfindən
+                            istənilir. Kitabxanamızda @ViewBag.n-nin @ViewBag.c ədəd
+                            kitabı mövcuddur. Sizdə bu və digər maraqlı kitabları
+                            oxumaq üçün tələsin.Yeni gələn kitablardan xəbərdar olmaq
+                            üçün saytımızda qeydiyyatdan keçin
+                        </h3>
+
+                        <div class="input-group" style="margin-top:20px">
+
+                            <div class="input-group-append">
+                                <a href="/Register/Index/" class="input-group-text btn_2" id="basic-addon2">Qeydiyyat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- awesome_shop part start-->
+    <!-- product_list part start-->
+    <section class="feature_part padding_top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section_tittle text-center">
+                        <h2>Çox oxunanlar</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                @Html.Action("Partial4")
+            </div>
+        </div>
+    </section>
+    <section class="client_logo padding_top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_1.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_2.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_3.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_4.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_5.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_3.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_1.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_2.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_3.png" alt="">
+                    </div>
+                    <div class="single_client_logo">
+                        <img src="~/aranoz/img/client_logo/client_logo_4.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::subscribe_area part end::-->
+    <!--::footer_part start::-->
+    <!--::footer_part end::-->
+    <!-- jquery plugins here-->
+    <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/aranoz/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/aranoz/js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/aranoz/js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="~/aranoz/js/owl.carousel.min.js"></script>
+    <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="~/aranoz/js/slick.min.js"></script>
+    <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+    <script src="~/aranoz/js/waypoints.min.js"></script>
+    <script src="~/aranoz/js/contact.js"></script>
+    <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/aranoz/js/jquery.form.js"></script>
+    <script src="~/aranoz/js/jquery.validate.min.js"></script>
+    <script src="~/aranoz/js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="~/aranoz/js/custom.js"></script>
+</body>
+</html>

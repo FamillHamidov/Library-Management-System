@@ -1,0 +1,22 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model IEnumerable<ActionTBL>
+@foreach (var item in Model)
+{
+    
+    <div style="width:170px; height:430px">
+        <div style="text-align:center">
+            <a href="/MainPage/TakeBook/@item.BookTBL.Id">
+                <img src="@item.BookTBL.Picture" style="width:160px;height:250px" alt="">
+            </a>
+            <div style="margin-top:10px; height:150px">
+                <a href="/MainPage/TakeBook/@item.BookTBL.Id">
+                    <h5 id="test">@item.BookTBL.Name</h5>
+                </a>
+                <h6 style=" color:black"> Jarn:  <b style=" color  :green">@item.BookTBL.CategoryTBL.Name</b></h6>
+                <h6 style=" color:black"> Müəllif:  <b style=" color  :green">@item.BookTBL.AuthorTBL.Name @item.BookTBL.AuthorTBL.Surname</b></h6>
+            </div>
+        </div>
+    </div>
+
+}
+

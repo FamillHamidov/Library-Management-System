@@ -1,0 +1,17 @@
+﻿@model MVCLibrary.Models.EntityFramework.CategoryTBL
+@{
+                ViewBag.Title = "NewCategory";
+                Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Janr adı</label>
+        @Html.TextBoxFor(x=>x.Name,new {@class="form-control" })
+        @Html.ValidationMessageFor(x=>x.Name, "", new {@style="color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Yeni janr əlavə edin</button>
+    </div>
+    <input type="hidden" name="Status" value="true" />
+</form>

@@ -1,0 +1,94 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<BlogTBL>
+    @{
+        ViewBag.Title = "Blog";
+        Layout = "~/Views/Shared/MainLayout.cshtml";
+    }
+    <!doctype html>
+    <html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>aranoz</title>
+        <link rel="icon" href="~/aranoz/img/favicon.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/bootstrap.min.css">
+        <!-- animate CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/animate.css">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/owl.carousel.min.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/all.css">
+        <!-- flaticon CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/flaticon.css">
+        <link rel="stylesheet" href="~/aranoz/css/themify-icons.css">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/magnific-popup.css">
+        <!-- swiper CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/slick.css">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="~/aranoz/css/style.css">
+    </head>
+    <body>
+        <!--================Blog Area =================-->
+        <section class="blog_area padding_top">
+            <div class="container">
+                <div class="row">
+                    <div >
+                        <div >
+                            @foreach (var item in Model)
+                            {
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="@item.Picture" alt="" style="width:550px; height:400px">
+                                        <a href="#" class="blog_item_date">
+                                            <h3>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</h3>
+                                            <p></p>
+                                        </a>
+                                    </div>
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="/MainPage/BlogDetail/@item.Id">
+                                            <h2>@item.Title</h2>
+                                        </a>
+                                        
+                                    </div>
+                                </article>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area =================-->
+        <!--::footer_part end::-->
+        <!-- jquery plugins here-->
+        <!-- jquery -->
+        <script src="~/aranoz/js/jquery-1.12.1.min.js"></script>
+        <!-- popper js -->
+        <script src="~/aranoz/js/popper.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="~/aranoz/js/bootstrap.min.js"></script>
+        <!-- easing js -->
+        <script src="~/aranoz/js/jquery.magnific-popup.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/swiper.min.js"></script>
+        <!-- swiper js -->
+        <script src="~/aranoz/js/masonry.pkgd.js"></script>
+        <!-- particles js -->
+        <script src="~/aranoz/js/owl.carousel.min.js"></script>
+        <script src="~/aranoz/js/jquery.nice-select.min.js"></script>
+        <!-- slick js -->
+        <script src="~/aranoz/js/slick.min.js"></script>
+        <script src="~/aranoz/js/jquery.counterup.min.js"></script>
+        <script src="~/aranoz/js/waypoints.min.js"></script>
+        <script src="~/aranoz/js/contact.js"></script>
+        <script src="~/aranoz/js/jquery.ajaxchimp.min.js"></script>
+        <script src="~/aranoz/js/jquery.form.js"></script>
+        <script src="~/aranoz/js/jquery.validate.min.js"></script>
+        <script src="~/aranoz/js/mail-script.js"></script>
+        <!-- custom js -->
+        <script src="~/aranoz/js/custom.js"></script>
+    </body>
+</html>

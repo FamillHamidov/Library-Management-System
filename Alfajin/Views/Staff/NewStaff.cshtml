@@ -1,0 +1,17 @@
+﻿@model MVCLibrary.Models.EntityFramework.StaffTBL
+@{
+    ViewBag.Title = "NewStaff";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>İşçinin adı və soyadı</label>
+        @Html.TextBoxFor(s=>s.Staff, new {@class="form-control"})
+        @Html.ValidationMessageFor(s=>s.Staff, "", new {@style="color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Əlavə et</button>
+    </div>
+</form>
+
+

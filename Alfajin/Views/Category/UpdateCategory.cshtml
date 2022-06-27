@@ -1,0 +1,18 @@
+﻿@model MVCLibrary.Models.EntityFramework.CategoryTBL
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("Update","Category", FormMethod.Post))
+{
+    <div class="form-group" style="margin-bottom:15px">
+        <label>Id</label>
+        @Html.TextBoxFor(k=>k.Id, new {@class="form-control" })
+        <label>Janr adı</label>
+        @Html.TextBoxFor(c=>c.Name, new {@class="form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        <button class="btn btn-warning">Güncəllə</button>
+    </div>
+}

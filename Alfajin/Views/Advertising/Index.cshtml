@@ -1,0 +1,33 @@
+﻿@using MVCLibrary.Models.EntityFramework
+@model List<AdvertisingTBL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div style="margin-top:-30px; margin-bottom:10px">
+    <h3 style="text-align:left"><b><em><i class="fa fa-hashtag"></i>Reklamlar</em></b></h3>
+</div>
+<table class="table table-striped">
+    <tr style="background-color:#66ff99; color:black">
+        <th><em>Başlıq</em></th>
+        <th><em>Əlavə</em></th>
+        <th><em>Əməliyyatlar</em></th>
+    </tr>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td><span class=" label label-primary">@b.Title</span></td>
+            <td><span class=" label label-primary">@b.Detail</span></td>
+            <td>
+                @Html.ActionLink(" ","RemoveAdvertising", new { id = b.Id }, new { @class = "btn btn-danger fa fa-trash",
+               onclick= "return confirm('Silmək istədiyinizdən əminsinizmi?')"})
+                <a href="/Advertising/TakeAdvertising/@b.Id" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                <a href="/Advertising/TakePicture/@b.Id" class="btn btn-primary"><i class="fa fa-camera"></i></a>
+            </td>
+        </tr>
+    }
+</table>
+<a style="margin-bottom:15px" href="/Advertising/NewAdvertising/" class="btn btn-dark">
+    <i class="fa fa-plus" style="margin-right:5px"></i>Yeni reklam əlavə et
+</a>
+

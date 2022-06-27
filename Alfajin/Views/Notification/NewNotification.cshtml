@@ -1,0 +1,24 @@
+﻿@model MVCLibrary.Models.EntityFramework.NotificationTBL
+@{
+    ViewBag.Title = "NewNotification";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Başlığı daxil edin</label>
+        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Məzmunu daxil edin</label>
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Tarixi daxil edin</label>
+        <input type="text" class="form-control" name="Date" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-warning">Əlavə edin</button>
+    </div>
+</form>
+

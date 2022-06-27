@@ -1,0 +1,28 @@
+﻿@using MVCLibrary.Models.EntityFramework;
+@model List<BookTBL>
+@{
+    ViewBag.Title = "AuthorBook";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+<style>
+    #test:hover {
+        color: #ff0000
+    }
+</style>
+<h2 style="margin-top:15px">Müəllif:<b><em> @ViewBag.firstname @ViewBag.lastname</em></b></h2>
+<div class="row">
+    @foreach (var x in Model)
+    {
+        <div>
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <br />
+                <a href="/Profil/BookDetail/@x.Id">
+                    <img class="img-fluid" src="@x.Picture" alt="" style="width:200px; height:300px; margin-left:30px">
+                </a>
+                <a href="/Profil/BookDetail/@x.Id">
+                    <p id="test" style="text-align:center;width:200px; margin-left:30px; margin-top:10px; "><b><em>@x.Name</em></b></p>
+                </a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,16 @@
+﻿@model MVCLibrary.Models.EntityFramework.AboutTBL
+@{
+    ViewBag.Title = "NewAbout";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("NewAbout", "About", FormMethod.Post))
+{
+    <div style="margin-top:15px">
+        <label>Mövzu</label>
+        @Html.TextAreaFor(b => b.Detail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yeni yazı əlavə edin</button>
+    </div>
+}
+
